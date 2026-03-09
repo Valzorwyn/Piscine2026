@@ -19,7 +19,7 @@ char	*ft_strncat(char *dest, char *src, unsigned int n)
 	while (dest[ii])
 		++ii;
 	jj = 0;
-	while (src[jj] && jj < n)
+	while (jj < n && src[jj])
 	{
 		dest[ii] = src[jj];
 		++ii;
