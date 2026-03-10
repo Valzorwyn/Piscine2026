@@ -1,16 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bajankov <bajankov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 14:19:20 by bajankov          #+#    #+#             */
-/*   Updated: 2026/03/10 15:48:43 by bajankov         ###   ########.fr       */
+/*   Created: 2026/03/10 15:41:07 by bajankov          #+#    #+#             */
+/*   Updated: 2026/03/10 15:58:18 by bajankov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 static int	ft_strlen(char *str)
 {
@@ -22,7 +20,7 @@ static int	ft_strlen(char *str)
 	return (ii);
 }
 
-static int	legalbase(char *base)
+static int	valid_base(char *base)
 {
 	int	ii;
 	int	jj;
@@ -36,37 +34,36 @@ static int	legalbase(char *base)
 		while (base[++jj])
 		{
 			if ((ii != jj && base[ii] == base[jj])
-				|| (base[ii] == '+' || base[ii] == '-'))
+				|| (base[ii] == '+' || base[ii] == '-')
+				|| (ft_iswspace(base[ii])))
 				return (0);
 		}
 	}
 	return (1);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+static int	ft_iswspace(char c)
 {
-	long	lnbr;
-	int		b;
-
-	lnbr = nbr;
-	if (!legalbase(base))
-		return ;
-	b = ft_strlen(base);
-	if (lnbr < 0)
-	{
-		write(1, "-", 1);
-		lnbr = -lnbr;
-	}
-	if (lnbr >= b)
-		ft_putnbr_base(lnbr / b, base);
-	write(1, &base[lnbr % b], 1);
+	if ((9 <= c && c <= 13) || c == 32)
+		return (1);
+	return (0);
 }
 
-// #include <stdlib.h>
-// int	main(int ac, char **av)
-// {
-// 	if (ac != 3)	
-// 		return 0;
-// 	ft_putnbr_base(atoi(av[1]), av[2]);
-// 	return 0;
-// }
+int	ft_atoi_base(char *str, char *base)
+{
+	int	ii;
+	int sign;
+
+	sign = 1;
+	ii = 0;
+
+	if (!valid_base(base))
+		return ;
+	
+	while (ft_iswspace(str[ii]))
+		ii++;
+	if (str[ii] == '-')
+		sign = -sign;
+	
+	
+}
