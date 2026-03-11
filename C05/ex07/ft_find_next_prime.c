@@ -1,0 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bajankov <bajankov@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/11 18:33:48 by bajankov          #+#    #+#             */
+/*   Updated: 2026/03/11 18:50:50 by bajankov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	ft_is_prime(int nb)
+{
+	int	i;
+
+	if (nb <= 1)
+		return (0);
+	i = 2;
+	while (i * i <= nb)
+	{
+		if (nb % i == 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	ft_find_next_prime(int nb)
+{
+	if (ft_is_prime(nb))
+		return (nb);
+	else
+		while (!ft_is_prime(nb))
+			nb++;
+	return (nb);
+}
