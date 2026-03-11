@@ -6,7 +6,7 @@
 /*   By: bajankov <bajankov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 15:41:07 by bajankov          #+#    #+#             */
-/*   Updated: 2026/03/10 15:58:18 by bajankov         ###   ########.fr       */
+/*   Updated: 2026/03/11 14:20:53 by bajankov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,9 @@ static int	ft_atoi_base_valid(char *base)
 
 static int	ft_index(char c, char *base)
 {
-	int	i = 0;
+	int	i;
+
+	i = 0;
 	while (base[i])
 	{
 		if (base[i] == c)
@@ -78,10 +80,12 @@ int	ft_atoi_base(char *str, char *base)
 	while (*str == '+' || *str == '-')
 		if (*str++ == '-')
 			sign *= -1;
-	while ((val = ft_index(*str, base)) != -1)
+	val = ft_index(*str, base);
+	while (val != -1)
 	{
 		res = res * base_len + val;
 		str++;
+		val = ft_index(*str, base);
 	}
 	return (res * sign);
 }
