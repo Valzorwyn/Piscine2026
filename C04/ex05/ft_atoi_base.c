@@ -20,7 +20,14 @@ static int	ft_strlen(char *str)
 	return (ii);
 }
 
-static int	valid_base(char *base)
+static int	ft_iswspace(char c)
+{
+	if ((9 <= c && c <= 13) || c == 32)
+		return (1);
+	return (0);
+}
+
+static int	ft_atoi_base_valid(char *base)
 {
 	int	ii;
 	int	jj;
@@ -42,28 +49,39 @@ static int	valid_base(char *base)
 	return (1);
 }
 
-static int	ft_iswspace(char c)
+static int	ft_index(char c, char *base)
 {
-	if ((9 <= c && c <= 13) || c == 32)
-		return (1);
-	return (0);
+	int	i = 0;
+	while (base[i])
+	{
+		if (base[i] == c)
+			return (i);
+		i++;
+	}
+	return (-1);
 }
 
 int	ft_atoi_base(char *str, char *base)
 {
-	int	ii;
-	int sign;
+	int	sign;
+	int	res;
+	int	base_len;
+	int	val;
 
 	sign = 1;
-	ii = 0;
-
-	if (!valid_base(base))
-		return ;
-	
-	while (ft_iswspace(str[ii]))
-		ii++;
-	if (str[ii] == '-')
-		sign = -sign;
-	
-	
+	res = 0;
+	if (!ft_atoi_base_valid(base))
+		return (0);
+	base_len = ft_strlen(base);
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	while (*str == '+' || *str == '-')
+		if (*str++ == '-')
+			sign *= -1;
+	while ((val = ft_index(*str, base)) != -1)
+	{
+		res = res * base_len + val;
+		str++;
+	}
+	return (res * sign);
 }
