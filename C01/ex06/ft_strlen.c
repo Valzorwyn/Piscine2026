@@ -6,7 +6,7 @@
 /*   By: bajankov <bajankov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 13:42:18 by bajankov          #+#    #+#             */
-/*   Updated: 2026/03/05 14:54:13 by bajankov         ###   ########.fr       */
+/*   Updated: 2026/03/14 13:04:03 by bajankov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	ft_strlen(char *str)
 		;
 	return (ii);
 }
+
 // int main(void){
 // 	#include <stdio.h>
 // 	printf("STRlen: %d", ft_strlen("123456789"));
