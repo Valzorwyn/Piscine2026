@@ -35,6 +35,8 @@ int check_format(char *arr)
     int i;
 
     i = 0;
+    if (is_num(arr[0]) != 1)
+        return (0);
     while (arr[i])
     {
         if ((i + 1) % 2 == 0)
