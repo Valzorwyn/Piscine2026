@@ -6,7 +6,7 @@
 /*   By: bajankov <bajankov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:44:49 by bajankov          #+#    #+#             */
-/*   Updated: 2026/03/16 20:17:57 by bajankov         ###   ########.fr       */
+/*   Updated: 2026/03/17 17:21:09 by bajankov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	*ft_calloc(size_t count, size_t size)
 	return ((void *)ptr);
 }
 
-char *ft_strjoin(int size, char **strs, char *sep)
+char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	int		ii;
 	int		sum_len;

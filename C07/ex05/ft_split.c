@@ -6,13 +6,13 @@
 /*   By: bajankov <bajankov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/17 14:35:56 by bajankov          #+#    #+#             */
-/*   Updated: 2026/03/17 17:16:25 by bajankov         ###   ########.fr       */
+/*   Updated: 2026/03/17 17:24:41 by bajankov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int ft_split_is_sep(char c, char *charset)
+int	ft_split_is_sep(char c, char *charset)
 {
 	int	ii;
 
@@ -39,7 +39,7 @@ int	ft_split_sep_count(char *str, char *charset)
 				ii++;
 		}
 		ii++;
-	};
+	}
 	return (sep_count);
 }
 
@@ -61,13 +61,13 @@ char	*ft_strdup(char *src, char *charset)
 	return (word[src_len] = '\0', word);
 }
 
-char **ft_split(char *str, char *charset)
+char	**ft_split(char *str, char *charset)
 {
-	int	ii;
-	int jj;
-	int	sep_count;
-	char **res;
-	
+	int		ii;
+	int		jj;
+	int		sep_count;
+	char	**res;
+
 	sep_count = ft_split_sep_count(str, charset);
 	ii = 0;
 	jj = 0;

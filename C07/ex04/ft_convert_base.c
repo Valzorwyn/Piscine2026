@@ -6,13 +6,13 @@
 /*   By: bajankov <bajankov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 20:20:32 by bajankov          #+#    #+#             */
-/*   Updated: 2026/03/17 14:35:11 by bajankov         ###   ########.fr       */
+/*   Updated: 2026/03/17 17:22:30 by bajankov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int ft_num_len(long nbr, int base_len);
+int	ft_num_len(long nbr, int base_len);
 
 int	ft_convert_base_valid(char *base)
 {
@@ -29,7 +29,7 @@ int	ft_convert_base_valid(char *base)
 		{
 			if ((ii != jj && base[ii] == base[jj])
 				|| (base[ii] == '+' || base[ii] == '-')
-				|| base[ii] == ' ' || (base[ii] >= 9 && base[ii] <= 13 ))
+				|| base[ii] == ' ' || (base[ii] >= 9 && base[ii] <= 13))
 				return (0);
 		}
 	}
@@ -77,12 +77,12 @@ int	ft_atoi_base(char *str, char *base)
 	return (res * sign);
 }
 
-char *ft_putnbr_base_str(int nbr, char *base)
+char	*ft_putnbr_base_str(int nbr, char *base)
 {
-	long lnbr;
-	int base_len;
-	int len;
-	char *res;
+	long	lnbr;
+	int		base_len;
+	int		len;
+	char	*res;
 
 	lnbr = nbr;
 	base_len = 0;
@@ -91,7 +91,7 @@ char *ft_putnbr_base_str(int nbr, char *base)
 	len = ft_num_len(lnbr, base_len);
 	res = malloc(len + 1);
 	if (!res)
-		return 0;
+		return (0);
 	res[len] = '\0';
 	if (lnbr < 0)
 		lnbr = -lnbr;
@@ -102,10 +102,10 @@ char *ft_putnbr_base_str(int nbr, char *base)
 	}
 	if (nbr < 0)
 		res[0] = '-';
-	return res;
+	return (res);
 }
 
-char *ft_convert_base(char *nbr, char *base_from, char *base_to)
+char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
 	if (!ft_convert_base_valid(base_from) || !ft_convert_base_valid(base_to))
 		return (0);
