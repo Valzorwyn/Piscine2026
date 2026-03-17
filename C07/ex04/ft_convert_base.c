@@ -6,7 +6,7 @@
 /*   By: bajankov <bajankov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 20:20:32 by bajankov          #+#    #+#             */
-/*   Updated: 2026/03/16 21:17:00 by bajankov         ###   ########.fr       */
+/*   Updated: 2026/03/17 14:35:11 by bajankov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_atoi_base(char *str, char *base)
 	sign = 1;
 	res = 0;
 	base_len = 0;
-	while (str[base_len])
+	while (base[base_len])
 		base_len++;
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
@@ -86,9 +86,9 @@ char *ft_putnbr_base_str(int nbr, char *base)
 
 	lnbr = nbr;
 	base_len = 0;
-	len = ft_num_len(lnbr, base_len);
 	while (base[base_len])
 		++base_len;
+	len = ft_num_len(lnbr, base_len);
 	res = malloc(len + 1);
 	if (!res)
 		return 0;
@@ -112,9 +112,10 @@ char *ft_convert_base(char *nbr, char *base_from, char *base_to)
 	return (ft_putnbr_base_str(ft_atoi_base(nbr, base_from), base_to));
 }
 
-int	main(int argc, char **argv)
-{
-	(void) argc;
+// #include <stdio.h>
+// int	main(int argc, char **argv)
+// {
+// 	(void) argc;
 
-	ft_convert_base(argv[1], argv[2], argv[3]);
-}
+// 	printf("%s",ft_convert_base(argv[1], argv[2], argv[3]));
+// }
