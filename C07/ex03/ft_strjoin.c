@@ -6,7 +6,7 @@
 /*   By: bajankov <bajankov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:44:49 by bajankov          #+#    #+#             */
-/*   Updated: 2026/03/18 14:26:20 by bajankov         ###   ########.fr       */
+/*   Updated: 2026/03/18 17:31:36 by bajankov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,3 +81,4 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	}
 	return (res);
 }
+
