@@ -6,7 +6,7 @@
 /*   By: bajankov <bajankov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 17:44:49 by bajankov          #+#    #+#             */
-/*   Updated: 2026/03/17 17:21:09 by bajankov         ###   ########.fr       */
+/*   Updated: 2026/03/18 14:26:20 by bajankov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	sum_len = 0;
 	while (++ii < size)
 		sum_len += ft_strlen(strs[ii]);
-	res = calloc((sum_len + 1), sizeof(char));
+	res = ft_calloc((sum_len + 1), sizeof(char));
 	ii = -1;
 	while (++ii < size)
 	{
